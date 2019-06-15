@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 # Move this cell UP and ModelCheckpoint will be logged
@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import cv2
 
 
-# In[1]:
+# In[2]:
 
 
 from trains import Task
@@ -42,7 +42,6 @@ task_params = task.connect(task_params)
 # In[5]:
 
 
-get_ipython().run_line_magic('matplotlib', 'inline')
 N = task_params['num_scatter_samples']
 x = np.random.rand(N)
 y = np.random.rand(N)
