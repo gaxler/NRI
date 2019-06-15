@@ -5,7 +5,7 @@
 
 
 from trains import Task
-task = Task.init(project_name="examples", task_name='mnist_train')
+task = Task.init(project_name="examples", task_name='notebook_example')
 logger = task.get_logger()
 
 
@@ -13,7 +13,6 @@ logger = task.get_logger()
 
 
 logger.set_default_upload_destination('s3://allegro-tutorials/ComputerVision')
-task.set
 
 
 # In[ ]:
