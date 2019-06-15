@@ -37,11 +37,9 @@ logger.set_default_upload_destination('s3://allegro-tutorials/ComputerVision')
 
 task_params = {'num_scatter_samples': 60, 'sin_max_value': 20, 'sin_steps': 30}
 task_params = task.connect(task_params)
-
+print(task_params)
 
 # In[5]:
-
-
 N = task_params['num_scatter_samples']
 x = np.random.rand(N)
 y = np.random.rand(N)
