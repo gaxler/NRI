@@ -3,6 +3,7 @@
 
 # log_jupyter_example.py: 17,18
 Keras == 2.2.4
+tensorflow-gpu==1.10.0
 
 # data\synthetic_sim.py: 2
 # log_jupyter_example.py: 11
