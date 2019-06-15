@@ -1,10 +1,15 @@
 
 # coding: utf-8
 
-# In[ ]:
+# In[2]:
 
 
-# Move this cell UP and ModelCheckpoint will be logged
+import urllib
+
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
 from keras.callbacks import TensorBoard, ModelCheckpoint
 from keras.datasets import mnist
 from keras.models import Sequential
@@ -12,28 +17,16 @@ from keras.layers.core import Dense, Dropout, Activation
 from keras.optimizers import SGD, Adam, RMSprop
 from keras.utils import np_utils
 
-import numpy as np
-import matplotlib.pyplot as plt
 
-import cv2
-import urllib
-
-
-# In[ ]:
+# In[3]:
 
 
 from trains import Task
-task = Task.init(project_name="examples", task_name='mnist_train_example')
-logger = task.get_logger()
+task = Task.init(project_name="examples", task_name='log_and_train')
+task.get_logger().set_default_upload_destination('s3://allegro-tutorials/ComputerVision')
 
 
-# In[ ]:
-
-
-logger.set_default_upload_destination('s3://allegro-tutorials/ComputerVision')
-
-
-# In[ ]:
+# In[4]:
 
 
 task_params = {
@@ -45,7 +38,7 @@ task_params = {
 task_params = task.connect(task_params)
 
 
-# In[ ]:
+# In[5]:
 
 
 task_params['custom_message'] = 'Hey! I can add params to a dict and they will be logged automagically!!'
@@ -55,7 +48,7 @@ print(task_params['custom_message'])
 print('*'*len(task_params['custom_message']))
 
 
-# In[ ]:
+# In[6]:
 
 
 N = task_params['num_scatter_samples']
@@ -74,24 +67,16 @@ plt.title('Sinus Dots')
 plt.show()
 
 
-# In[ ]:
+# In[8]:
 
 
 import numpy as np
 m = np.eye(256, 256, dtype=np.uint8)
 plt.imshow(m)
-plt.title('test2')
+plt.title('test2');
 
 
-# In[ ]:
-
-
-import logging
-logging.getLogger('mine').warning('testing one two 3 4')
-task.get_logger().flush()
-
-
-# In[ ]:
+# In[10]:
 
 
 def url_to_image(url):
@@ -100,7 +85,7 @@ def url_to_image(url):
   image = cv2.imdecode(image, cv2.IMREAD_COLOR)
   return image
 
-m = url_to_image('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Altamira_bisons.jpg/495px-Altamira_bisons.jpg')
+m = url_to_image('https://raw.githubusercontent.com/gaxler/NRI/master/nri.png')
 task.get_logger().report_image_and_upload("debug", "we-can-log-images", iteration=1, matrix=m)
 
 
