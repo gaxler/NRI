@@ -82,9 +82,9 @@ task_params['batch_size'] = 128
 task_params['nb_classes'] = 10
 task_params['nb_epoch'] = 6
 task_params['hidden_dim'] = 512
-batch_size = task_params['batch_size']
-nb_classes = task_params['nb_classes']
-nb_epoch = task_params['nb_epoch']
+batch_size = int(task_params['batch_size'])
+nb_classes = int(task_params['nb_classes'])
+nb_epoch = int(task_params['nb_epoch'])
 
 
 # the data, shuffled and split between train and test sets
