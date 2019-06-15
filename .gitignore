@@ -103,3 +103,5 @@ ENV/
 *.npy
 
 \.idea/
+
+*.hdf5
