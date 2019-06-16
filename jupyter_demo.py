@@ -22,23 +22,28 @@ from keras.utils import np_utils
 
 
 from trains import Task
-task = Task.init(project_name="examples", task_name='circles_and_mnist')
-task.get_logger().set_default_upload_destination('s3://allegro-tutorials/ComputerVision')
+task = Task.init(project_name="examples", task_name='magic_demo', output_uri='s3://allegro-tutorials/ComputerVision')
 
 
 # In[3]:
+
+
+task.get_logger().set_default_upload_destination('s3://allegro-tutorials/ComputerVision')
+
+
+# In[4]:
 
 
 task_params = {
     # Plots
     'num_scatter_samples': 60, 'sin_max_value': 20, 'sin_steps': 30,
     # Mnist MLP
-    'batch_size': 128, 'nb_classes': 10, 'nb_epoch': 6, 'hidden_dim':512
+    'batch_size': 128, 'nb_classes': 10, 'nb_epoch': 2, 'hidden_dim':512
 }
 task_params = task.connect(task_params)
 
 
-# In[9]:
+# In[5]:
 
 
 N = task_params['num_scatter_samples']
@@ -58,11 +63,12 @@ plt.show()
 m = np.eye(256, 256, dtype=np.uint8)
 plt.imshow(m)
 plt.title('Output sample')
+plt.show()
 
 
 # ### Train an MNIST MLP
 
-# In[8]:
+# In[ ]:
 
 
 batch_size = task_params['batch_size']
