@@ -22,7 +22,7 @@ from keras.utils import np_utils
 
 
 from trains import Task
-task = Task.init(project_name="examples", task_name='magic_demo_2', output_uri='s3://allegro-tutorials/ComputerVision')
+task = Task.init(project_name="examples", task_name='magic_logging', output_uri='s3://allegro-tutorials/ComputerVision')
 
 
 # In[3]:
