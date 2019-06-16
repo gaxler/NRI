@@ -22,22 +22,22 @@ from keras.utils import np_utils
 
 
 from trains import Task
-task = Task.init(project_name="examples", task_name='magic_logging')
+task = Task.init(project_name="examples", task_name='magic_logging2')
 
 
-# In[4]:
+# In[3]:
 
 
 task_params = {
     # Plots
-    'num_scatter_samples': 60, 'sin_max_value': 20, 'sin_steps': 30,
+    'num_scatter_samples': 60,
     # Mnist MLP
     'batch_size': 128, 'nb_classes': 10, 'nb_epoch': 2, 'hidden_dim':512
 }
 task_params = task.connect(task_params)
 
 
-# In[5]:
+# In[4]:
 
 
 N = task_params['num_scatter_samples']
@@ -50,7 +50,7 @@ plt.title('Nice Circles')
 plt.show()
 
 
-# In[6]:
+# In[5]:
 
 
 # Sample of output
@@ -62,7 +62,7 @@ plt.show()
 
 # ### Train an MNIST MLP
 
-# In[7]:
+# In[6]:
 
 
 batch_size = task_params['batch_size']
