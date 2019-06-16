@@ -1,13 +1,14 @@
 
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 import urllib
 
 import cv2
 import numpy as np
+import tensorflow as tf
 import matplotlib.pyplot as plt
 
 from keras.callbacks import TensorBoard, ModelCheckpoint
@@ -18,15 +19,15 @@ from keras.optimizers import SGD, Adam, RMSprop
 from keras.utils import np_utils
 
 
-# In[3]:
+# In[2]:
 
 
 from trains import Task
-task = Task.init(project_name="examples", task_name='log_and_train')
+task = Task.init(project_name="examples", task_name='circles_and_mnist')
 task.get_logger().set_default_upload_destination('s3://allegro-tutorials/ComputerVision')
 
 
-# In[4]:
+# In[3]:
 
 
 task_params = {
@@ -38,7 +39,7 @@ task_params = {
 task_params = task.connect(task_params)
 
 
-# In[5]:
+# In[4]:
 
 
 task_params['custom_message'] = 'Hey! I can add params to a dict and they will be logged automagically!!'
@@ -48,7 +49,7 @@ print(task_params['custom_message'])
 print('*'*len(task_params['custom_message']))
 
 
-# In[6]:
+# In[5]:
 
 
 N = task_params['num_scatter_samples']
@@ -67,7 +68,7 @@ plt.title('Sinus Dots')
 plt.show()
 
 
-# In[8]:
+# In[6]:
 
 
 import numpy as np
@@ -76,7 +77,7 @@ plt.imshow(m)
 plt.title('test2');
 
 
-# In[10]:
+# In[7]:
 
 
 def url_to_image(url):
@@ -91,7 +92,7 @@ task.get_logger().report_image_and_upload("debug", "we-can-log-images", iteratio
 
 # ### Train an MNIST MLP
 
-# In[ ]:
+# In[8]:
 
 
 batch_size = task_params['batch_size']
@@ -145,7 +146,7 @@ print('Test score:', score[0])
 print('Test accuracy:', score[1])
 
 
-# In[ ]:
+# In[9]:
 
 
 task.get_logger().flush()
