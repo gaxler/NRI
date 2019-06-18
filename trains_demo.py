@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 import urllib
@@ -22,7 +22,7 @@ from keras.utils import np_utils
 
 
 from trains import Task
-task = Task.init(project_name="Logging from Jupyter", task_name='the_basics')
+task = Task.init(project_name="Logging from Jupyter", task_name='the_basics_deamo')
 
 
 # In[3]:
