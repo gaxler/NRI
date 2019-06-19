@@ -22,7 +22,7 @@ from keras.utils import np_utils
 
 
 from trains import Task
-task = Task.init(project_name="Logging from Jupyter", task_name='the_basics_demo')
+task = Task.init(project_name="Logging from Jupyter", task_name='the_basics_demo_day_2')
 
 
 # In[3]:
